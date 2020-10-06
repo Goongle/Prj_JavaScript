@@ -1,0 +1,23 @@
+<html>
+  <h1>EJS 사용 확인</h1>
+  <h2>페이지가 잘 나옵니다</h2>
+  <input type="text" id="inputText"></input>
+  <button type="button" id="sendButton">보내기</button>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script>
+      $("#sendButton").click(function(){
+       var inputText = $("#inputText").val();
+       $.ajax({
+            url:'/getDataTest',
+            type : 'POST',
+            data : {
+                userText : inputText,
+                sendTime : new Date()
+            },
+            success:function(data){
+                alert(data);
+            }
+        })
+      })
+  </script>
+</html>
